@@ -14,7 +14,7 @@
           %h2 Work Single Page
           %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
           -if user_signed_in? 
-            =link_to 'Edit', new_login_directer_path, class: 'btn btn-outline-danger'
+            =link_to 'Edit', edit_login_directer_path, class: 'btn btn-outline-danger'
             =link_to 'Delete', login_directer_path(@directer), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-outline-warning'
       .site-section.pb-0
       .container
