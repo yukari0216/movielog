@@ -8,4 +8,10 @@ class Work < ApplicationRecord
   validates :year, presence: true
   validates :acter, presence: true
   validates :about, presence: true
+
+
+  def related_works
+    directer.works.where.not(id: id) 
+  end  
+    
 end

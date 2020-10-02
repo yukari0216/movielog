@@ -71,11 +71,17 @@
                 %span.text-muted=@work.year
               .mb-5
                 %p=@work.about
-              %h4.h4.mb-3=@work.directer.name
+              %h4.h4.mb-3=@work.directer.name 
               %ul.list-unstyled.list-line.mb-5
-                -@work.directer.works.each do |work|
+                -# -@work.directer.works.each do |work|
+                -#   -unless work.id == @work.id
+                -#     =link_to work_path(work) do
+                -#       %li=work.title
+                -# -@work.directer.works.where.not(id: @work.id).each do |work|
+                
+                -@work.related_works.each do |work|
                   =link_to work_path(work) do
-                    %li=work.title
+                    %li=work.title  
               
       -# / ======= Testimonials Section =======
       -# %section.section.pt-0
