@@ -27,6 +27,17 @@ gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem "haml-rails", "~> 2.0"
+gem 'bootstrap_form'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+gem 'mini_magick', '~> 4.8'
+gem 'kaminari'
+gem 'ransack'
+gem "font-awesome-rails"
+gem 'devise'
+gem 'cloudinary'
+gem 'activestorage-cloudinary-service'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,15 +61,8 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "haml-rails", "~> 2.0"
-gem 'bootstrap_form'
-gem 'bootstrap', '~> 4.4.1'
-gem 'jquery-rails'
-gem 'mini_magick', '~> 4.8'
-gem 'kaminari'
-gem 'ransack'
-gem "font-awesome-rails"
-gem 'devise'
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
