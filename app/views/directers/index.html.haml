@@ -40,7 +40,8 @@
               -# %img.img-fluid{:src => "img/img_1.jpg"}/
               -# =image_tag work.image.variant(gravity: :center, resize:"350x350^", crop:"350x350+0+0").processed, class: 'img-fluid'
               -if directer.image.present?
-                =image_tag directer.image.variant(gravity: :center, resize:"350x350^", crop:"350x350+0+0").processed, class: 'img-fluid'
+                -# =image_tag directer.image.variant(gravity: :center, resize:"350x350^", crop:"350x350+0+0").processed, class: 'img-fluid'
+                =image_tag directer.image, size:"350x350^", class: 'img-fluid'
               -else
                 =image_tag '/img/default_image.png', class: 'img-fluid'
 
