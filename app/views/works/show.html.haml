@@ -1,0 +1,124 @@
+-# =@work.title
+-# =@work.year
+-# =@work.acter
+-# =@work.about
+-# =@work.directer.name
+-# =link_to 'トップに戻る', works_path
+-# =link_to '編集', edit_work_path(@work)
+-# =link_to '削除', work_path(@work), method: :delete, data: {confirm: "削除しますか？"}
+
+/ ======= Navbar =======
+-# #main-navbar.collapse.navbar-collapse.custom-navmenu
+-#   .container.py-2.py-md-5
+-#     .row.align-items-start
+-#       .col-md-2
+-#         %ul.custom-menu
+-#           %li
+-#             %a{:href => "index.html"} Home
+-#           %li
+-#             %a{:href => "about.html"} About Me
+-#           %li
+-#             %a{:href => "services.html"} Services
+-#           %li.active
+-#             %a{:href => "works.html"} Works
+-#           %li
+-#             %a{:href => "contact.html"} Contact
+-#       .col-md-6.d-none.d-md-block.mr-auto
+-#         .tweet.d-flex
+-#           %span.icofont-twitter.text-white.mt-2.mr-3
+-#           %div
+-#             %p
+-#               %em
+-#                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
+-#                 %br/
+-#                 %a{:href => "#"} t.co/v82jsk
+-#       .col-md-4.d-none.d-md-block
+-#         %h3 Hire Me
+-#         %p
+-#           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiisexplicabo inventore.
+-#           %br/
+-#           %a{:href => "#"} myemail@gmail.com
+-# %nav.navbar.navbar-light.custom-navbar
+-#   .container
+-#     %a.navbar-brand{:href => "index.html"} Movielog.
+-#     %a.burger{"data-target" => "#main-navbar", "data-toggle" => "collapse", :href => "#"}
+-#       %span
+%main#main
+  %section.section
+    .container
+      .row.mb-4.align-items-center
+        .col-md-6{"data-aos" => "fade-up"}
+          %h2 Work Single Page
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
+          -# =link_to 'Edit', edit_work_path(@work)
+          -if user_signed_in?
+            =link_to 'Edit', edit_login_work_path, class: 'btn btn-outline-danger'
+            =link_to 'Delete', login_work_path(@work), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-outline-warning'
+    .site-section.pb-0
+      .container
+        .row.align-items-stretch
+          .col-md-8{"data-aos" => "fade-up"}
+            -# %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
+            -# =image_tag @work.image.variant(resize:"730x730^").processed, class: 'img-fluid'
+            -if @work.image.present?
+              =image_tag @work.image.variant(resize:"730x730^").processed, class: 'img-fluid'
+            -else
+              =image_tag '/img/default_image.png', class: 'img-fluid'
+          .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+            .sticky-content
+              %h3.h3=@work.title
+              %p.mb-4
+                %span.text-muted=@work.year
+              .mb-5
+                %p=@work.about
+              %h4.h4.mb-3=@work.directer.name
+              %ul.list-unstyled.list-line.mb-5
+                -@work.directer.works.each do |work|
+                  =link_to work_path(work) do
+                    %li=work.title
+              
+      -# / ======= Testimonials Section =======
+      -# %section.section.pt-0
+      -#   .container
+      -#     .owl-carousel.testimonial-carousel
+      -#       .testimonial-wrap
+      -#         .testimonial
+      -#           %img.img-fluid{:alt => "Image", :src => "img/person_1.jpg"}/
+      -#           %blockquote
+      -#             %p
+      -#               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
+      -#               explicabo inventore.
+      -#           %p — Jean Hicks
+      -#       .testimonial-wrap
+      -#         .testimonial
+      -#           %img.img-fluid{:alt => "Image", :src => "img/person_2.jpg"}/
+      -#           %blockquote
+      -#             %p
+      -#               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
+      -#               explicabo inventore.
+      -#           %p — Chris Stanworth
+      / End Testimonials Section
+      / End #main
+      / ======= Footer =======
+      -# %footer.footer{:role => "contentinfo"}
+      -#   .container
+      -#     .row
+      -#       .col-sm-6
+      -#         %p.mb-1 © Copyright MyPortfolio. All Rights Reserved
+      -#         .credits
+      -#           /
+      -#             All the links in the footer should remain intact.
+      -#             You can delete the links only if you purchased the pro version.
+      -#             Licensing information: https://bootstrapmade.com/license/
+      -#             Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=MyPortfolio
+      -#           Designed by
+      -#           %a{:href => "https://bootstrapmade.com/"} BootstrapMade
+      -#       .col-sm-6.social.text-md-right
+      -#         %a{:href => "#"}
+      -#           %span.icofont-twitter
+      -#         %a{:href => "#"}
+      -#           %span.icofont-facebook
+      -#         %a{:href => "#"}
+      -#           %span.icofont-dribbble
+      -#         %a{:href => "#"}
+      -#           %span.icofont-behance

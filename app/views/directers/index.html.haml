@@ -1,0 +1,106 @@
+-# -@directers.each do |directer|
+-#   名前:
+-#   =link_to directer.name, directer_path(directer.id)
+-#   %br  
+-#   出身国:
+-#   =directer.country
+-#   %br
+  
+-#   %hr
+-# =link_to '新規登録', new_directer_path
+
+/ ======= Navbar =======
+
+%main#main
+  / ======= Works Section =======
+  %section.section.site-portfolio
+    .container
+      .row.mb-5.align-items-center
+        .col-md-12.col-lg-6.mb-4.mb-lg-0{"data-aos" => "fade-up"}
+          %h2 MOVIE LIST
+          %p.mb-0 Find your favorite movie
+        -# .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+        -#   #filters.filters
+        -#     %a.active{"data-filter" => "*", :href => "#"} All
+        -#     %a{"data-filter" => ".web", :href => "#"} Web
+        -#     %a{"data-filter" => ".design", :href => "#"} Design
+        -#     %a{"data-filter" => ".branding", :href => "#"} Branding
+        -#     %a{"data-filter" => ".photography", :href => "#"} Photography
+      #portfolio-grid.row.no-gutter{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+        -@directers.each do |directer|
+          .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+            -# %a.item-wrap.fancybox{:href => "work-single.html"}
+            =link_to directer_path(directer), class: 'item-wrap fancybox' do
+              .work-info
+                %h3=directer.name
+                %span
+                  =directer.country
+                  %br
+                  -# =work.directer.name
+              -# %img.img-fluid{:src => "img/img_1.jpg"}/
+              -# =image_tag work.image.variant(gravity: :center, resize:"350x350^", crop:"350x350+0+0").processed, class: 'img-fluid'
+              -if directer.image.present?
+                =image_tag directer.image.variant(gravity: :center, resize:"350x350^", crop:"350x350+0+0").processed, class: 'img-fluid'
+              -else
+                =image_tag '/img/default_image.png', class: 'img-fluid'
+
+      .pagenation-newbotton
+        =paginate @directers   
+        -if user_signed_in?
+          =link_to 'NEW', new_login_directer_path, class: 'btn btn-outline-danger'
+      = search_form_for @q do |f|
+        .col-12.col-md-10.col-lg-4.float-right
+          .row.no-gutters.align-items-center
+            .col-auto
+              %i.fa.fa-search
+            .col
+              = f.search_field :name_cont, class: 'form-control form-control-lg form-control-borderless'
+            .col-auto
+              = f.submit "Search", class: 'btn btn-lg btn-danger'      
+
+      
+      -# =paginate @directers   
+      -# = search_form_for @q do |f|
+      -#   = f.label :name, "Keyword"
+      -#   = f.search_field :name_cont
+      -#   = f.submit "Search"       
+
+      -# -# %button.btn.btn-outline-danger{:type => "button"} Danger  
+      -# =link_to 'NEW', new_directer_path, class: 'btn btn-outline-danger'
+      -# .col-12.col-md-10.col-lg-4
+      -#   .card-body.row.no-gutters.align-items-center
+      -#     .col-auto
+      -#       %i.fas.fa-search.h4.text-body
+      -#     / end of col
+      -#     .col
+      -#       %input.form-control.form-control-lg.form-control-borderless{:placeholder => "Search topics or keywords", :type => "search"}/
+      -#     / end of col
+      -#     .col-auto
+      -#       %button.btn.btn-lg.btn-success{:type => "submit"} Search
+      -#     / end of col
+
+
+
+  / End  Works Section
+-#   / ======= Testimonials Section =======
+-#   %section.section.pt-0
+-#     .container
+-#       .owl-carousel.testimonial-carousel
+-#         .testimonial-wrap
+-#           .testimonial
+-#             %img.img-fluid{:alt => "Image", :src => "img/person_1.jpg"}/
+-#             %blockquote
+-#               %p
+-#                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
+-#                 explicabo inventore.
+-#             %p — Jean Hicks
+-#         .testimonial-wrap
+-#           .testimonial
+-#             %img.img-fluid{:alt => "Image", :src => "img/person_2.jpg"}/
+-#             %blockquote
+-#               %p
+-#                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
+-#                 explicabo inventore.
+-#             %p — Chris Stanworth
+-#   / End Testimonials Section
+-# / End #main

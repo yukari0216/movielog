@@ -1,0 +1,19 @@
+.pagenation-newbotton {
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .btn{
+    margin-right: 15px;
+  }
+}
+.work_search,.directer_search{
+  font-family: 'Open Sans', sans-serif;
+  i{
+    margin-right: 15px;
+  }
+}
+// .search-form{
+//   display: flex;
+//   flex-direction: column-reverse;
+// }
