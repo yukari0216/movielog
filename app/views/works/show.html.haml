@@ -61,7 +61,7 @@
             -# %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
             -# =image_tag @work.image.variant(resize:"730x730^").processed, class: 'img-fluid'
             -if @work.image.present?
-              =image_tag @work.image, size:"730x730^", class: 'img-fluid'
+              =image_tag @work.image_url, class: 'img-fluid'
             -else
               =image_tag '/img/default_image.png', class: 'img-fluid'
           .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}

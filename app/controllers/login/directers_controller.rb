@@ -46,6 +46,6 @@ class Login::DirectersController < Login::ApplicationController
   end  
 
   def directer_params
-    params[:directer].permit(:name, :country, :image)
+    params[:directer].permit(:name, :country, :image, :image_cache, :remove_image)
   end
 end  

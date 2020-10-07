@@ -1,5 +1,6 @@
 class Work < ApplicationRecord
-  has_one_attached :image
+  # has_one_attached :image
+  mount_uploader :image, WorkImageUploader
   
   belongs_to :directer
   scope :by_new, ->{ order(updated_at: :desc) }
