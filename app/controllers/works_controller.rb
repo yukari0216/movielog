@@ -6,7 +6,7 @@ class WorksController < ApplicationController
 
   def index
     @q = Work.ransack(params[:q])
-    @works = @q.result(distinct: true).by_new.page(params[:page]).per(3)
+    @works = @q.result(distinct: true).by_new.page(params[:page]).per(9)
   end  
 
   # def new

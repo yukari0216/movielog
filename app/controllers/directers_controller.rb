@@ -6,7 +6,7 @@ class DirectersController < ApplicationController
 
   def index
     @q = Directer.ransack(params[:q])
-    @directers = @q.result(distinct: true).by_new.page(params[:page]).per(3)
+    @directers = @q.result(distinct: true).by_new.page(params[:page]).per(9)
      # @directers = Directer.all.by_new
   end  
 

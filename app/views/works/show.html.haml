@@ -48,8 +48,13 @@
     .container
       .row.mb-4.align-items-center
         .col-md-6{"data-aos" => "fade-up"}
-          %h2 Work Single Page
-          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
+          %h2=@work.title
+          %p 
+            Director:
+            =link_to @work.directer.name, directer_path(@work.directer)
+            %br
+            Year:
+            =@work.year
           -# =link_to 'Edit', edit_work_path(@work)
           -if user_signed_in?
             =link_to 'Edit', edit_login_work_path, class: 'btn btn-outline-danger'
@@ -66,22 +71,23 @@
               =image_tag '/img/default_image.png', class: 'img-fluid'
           .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
             .sticky-content
-              %h3.h3=@work.title
-              %p.mb-4
-                %span.text-muted=@work.year
+              -# %h3.h3=@work.title
+              -# %p.mb-4
+              -#   %span.text-muted=@work.year
               .mb-5
                 %p=@work.about
-              %h4.h4.mb-3=@work.directer.name 
+              -# %h4.h4.mb-3=@work.directer.name 
               %ul.list-unstyled.list-line.mb-5
                 -# -@work.directer.works.each do |work|
                 -#   -unless work.id == @work.id
                 -#     =link_to work_path(work) do
                 -#       %li=work.title
                 -# -@work.directer.works.where.not(id: @work.id).each do |work|
-                
-                -@work.related_works.each do |work|
-                  =link_to work_path(work) do
-                    %li=work.title  
+                -if @work.related_works.present?
+                  %h4.h4.mb-3="#{@work.directer.name} works"
+                  -@work.related_works.each do |work|
+                    =link_to work_path(work) do
+                      %li=work.title  
               
       -# / ======= Testimonials Section =======
       -# %section.section.pt-0

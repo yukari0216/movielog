@@ -11,6 +11,7 @@ class Login::WorksController < Login::ApplicationController
 
   def new
     @work = Work.new
+    @work.directer_id = params[:directer_id] if params[:directer_id].present?
   end  
 
   def create
