@@ -9,8 +9,9 @@
 # General
 --------------------------------------------------------------*/
 body {
+  background-color: #000;
   font-family: "Inconsolata", monosapce;
-  color: #0d1e2d;
+  color: white; 
 }
 
 a {
