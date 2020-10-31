@@ -402,6 +402,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 .custom-navbar .navbar-brand {
   font-size: 1.7rem;
+  color: white;
 }
 
 /* Burger */
